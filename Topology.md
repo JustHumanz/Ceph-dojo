@@ -147,7 +147,56 @@ All nodes have same block disks name (vdb,vdc,vdd)
 
 
 ##### create osds on all fast nodes
-All nodes have same block disks name (vdb,vdc,vdd)
+All nodes have same block disks name (vdb,vdc)
 
 - `ceph-volume lvm create --data /dev/vdb`
 - `ceph-volume lvm create --data /dev/vdc`
+
+
+##### osds tree
+```
+ID   CLASS   WEIGHT    TYPE NAME                     STATUS  REWEIGHT  PRI-AFF
+ -1          16.15163  root default
+ -9           4.06847      rack rack01
+ -3           0.04887          host ubuntu-nested-1
+  0  hdd_v2   0.00980              osd.0                 up   1.00000  1.00000
+  1  hdd_v2   0.00980              osd.1                 up   1.00000  1.00000
+  8  hdd_v2   0.00980              osd.8                 up   1.00000  1.00000
+ 20  hdd_v2   0.01949              osd.20                up   1.00000  1.00000
+-17           4.00000          host ubuntu-nested-4
+  6  hdd_v2   1.00000              osd.6                 up   1.00000  1.00000
+  7  hdd_v2   1.00000              osd.7                 up   1.00000  1.00000
+ 10  hdd_v2   1.00000              osd.10                up   1.00000  1.00000
+ 18  hdd_v2   1.00000              osd.18                up   1.00000  1.00000
+-27           0.01959          host ubuntu-nested-7
+ 24  ssd_v2   0.00980              osd.24                up   1.00000  1.00000
+ 27  ssd_v2   0.00980              osd.27                up   1.00000  1.00000
+-10           4.06357      rack rack02
+ -5           0.04398          host ubuntu-nested-2
+  2  hdd_v2   0.00980              osd.2                 up   1.00000  1.00000
+  3  hdd_v2   0.00980              osd.3                 up   1.00000  1.00000
+  9  hdd_v2   0.00980              osd.9                 up   1.00000  1.00000
+ 22  hdd_v2   0.01459              osd.22                up   1.00000  1.00000
+-28           4.00000          host ubuntu-nested-5
+ 12  hdd_v2   1.00000              osd.12                up   1.00000  1.00000
+ 13  hdd_v2   1.00000              osd.13                up   1.00000  1.00000
+ 14  hdd_v2   1.00000              osd.14                up   1.00000  1.00000
+ 21  hdd_v2   1.00000              osd.21                up   1.00000  1.00000
+-34           0.01959          host ubuntu-nested-8
+ 25  ssd_v2   0.00980              osd.25                up   1.00000  1.00000
+ 29  ssd_v2   0.00980              osd.29                up   1.00000  1.00000
+-11           8.01959      rack rack03
+ -7           4.00000          host ubuntu-nested-3
+  4  hdd_v2   1.00000              osd.4                 up   1.00000  1.00000
+  5  hdd_v2   1.00000              osd.5                 up   1.00000  1.00000
+ 11  hdd_v2   1.00000              osd.11                up   1.00000  1.00000
+ 23  hdd_v2   1.00000              osd.23                up   1.00000  1.00000
+-31           4.00000          host ubuntu-nested-6
+ 15  hdd_v2   1.00000              osd.15                up   1.00000  1.00000
+ 16  hdd_v2   1.00000              osd.16                up   1.00000  1.00000
+ 17  hdd_v2   1.00000              osd.17                up   1.00000  1.00000
+ 19  hdd_v2   1.00000              osd.19                up   1.00000  1.00000
+-37           0.01959          host ubuntu-nested-9
+ 26  ssd_v2   0.00980              osd.26                up   1.00000  1.00000
+ 28  ssd_v2   0.00980              osd.28                up   1.00000  1.00000
+```
