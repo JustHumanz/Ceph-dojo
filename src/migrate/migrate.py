@@ -69,6 +69,8 @@ class rados_migrate:
                 except AssertionError:
                     print(f"[WARN] obj {self.dst_pool.name}/{src_obj_name} not sync with new pool,try to sync obj")
 
+            ## this is was dirty but work, the proper way to do this is using ioctx.read on src pool then ioctx.write on dst pool 
+            ## and i need to set the xattr 
             cmd = [f'rados', 'cp', f'--pool={self.src_pool.name}', f'{src_obj_name}', f'--target-pool={self.dst_pool.name}', f'{src_obj_name}']
             subprocess.run(cmd, text=True, capture_output=True)
             print(f"[INFO] {self.src_pool.name}/{src_obj_name} => {self.dst_pool.name}/{src_obj_name}")
